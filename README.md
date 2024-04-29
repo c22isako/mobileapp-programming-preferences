@@ -15,20 +15,18 @@ _Du kan ta bort all text som finns sedan tidigare_.
 
 Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
 
+Lade till kod från canvas, som skapar en reference, och en editor. Därefter la jag även till information för att använda
+referensen, för att kunna läsa data.
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+private SharedPreferences myPreferenceRef;
+private SharedPreferences.Editor myPreferenceEditor;
+
+ myPreferenceRef = getPreferences(MODE_PRIVATE);
+        myPreferenceEditor = myPreferenceRef.edit();
+
+        TextView prefTextRef=new TextView(this);
+        prefTextRef=(TextView)findViewById(R.id.prefText);
+        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
