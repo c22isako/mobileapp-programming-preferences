@@ -15,8 +15,14 @@ _Du kan ta bort all text som finns sedan tidigare_.
 
 Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
 
+
 Lade till kod från canvas, som skapar en reference, och en editor. Därefter la jag även till information för att använda
-referensen, för att kunna läsa data.
+referensen, för att kunna läsa data. Lade även till en TextView och en knapp i mainActivitys xml fil. Knappen kommer användas
+för att ta sig vidare till SecondActivity, och TextView för att visa upp den "sparade" datan.
+```
+  private Button SeccondAcitivityButton;
+  private SharedPreferences myPreferenceRef;
+```
 ```
 private SharedPreferences myPreferenceRef;
 private SharedPreferences.Editor myPreferenceEditor;
@@ -28,7 +34,7 @@ private SharedPreferences.Editor myPreferenceEditor;
         prefTextRef=(TextView)findViewById(R.id.prefText);
         prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 ```
-Därefter skapade jag en ny empty views activity, SecondActivity, och lägger in widgets i dess xml fil. Jag tog även bort överflödig kod för att passa projektets ändamål. 
+Därefter skapade jag en ny empty views activity, SecondActivity, och lägger in EditText, samt en button i dess xml fil. Jag tog även bort överflödig kod för att passa projektets ändamål. 
 Notera att dessa kodrader kommer från canvas. Eftersom canvas koden även inkluderade ett id som kräver en variabel i string-filen ("save" på button), lades denna till. 
 Denna kommer användas senare i projektet.
 
@@ -44,7 +50,8 @@ public void onClick(View view) {
             }
         });
 ```
-Fixade gradle via build.gradle, där vi ändrade från '1.8.0' till 1.1.0.
+Fixade gradle-versioner via build.gradle, där vi ändrade från '1.8.0' till 1.1.0. Detta eftersom den krånglade efter att vi lade till
+en ny activity.
 ```
 implementation 'androidx.activity:activity:1.1.0'
 ```
