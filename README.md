@@ -56,6 +56,8 @@ en ny activity.
 implementation 'androidx.activity:activity:1.1.0'
 ```
 
+Jag flyttade även edit text till sidan om save knappen, i activity_second.xml, genom constraints.
+
 Bilder läggs i samma mapp som markdown-filen.
 
 ![](android.png)

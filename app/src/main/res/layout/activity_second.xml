@@ -7,11 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/settingseditview"
-        tools:ignore="MissingConstraints" />
     <Button
         android:text="@string/save"
         android:layout_below="@+id/settingseditview"
@@ -19,6 +14,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/prefButton"
         android:onClick="savePref"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        app:layout_constraintLeft_toRightOf="@+id/prefButton"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingseditview"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

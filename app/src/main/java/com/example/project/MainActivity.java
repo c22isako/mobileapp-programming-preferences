@@ -13,10 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button SeccondAcitivityButton;
     private SharedPreferences myPreferenceRef;
     private SharedPreferences.Editor myPreferenceEditor;
+    private Button SeccondAcitivityButton;
+    TextView prefTextRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +25,28 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        myPreferenceRef = getSharedPreferences("MyPreferencesName",MODE_PRIVATE);
+        myPreferenceRef = getSharedPreferences("MyAppPreferenceString",MODE_PRIVATE);
         myPreferenceEditor = myPreferenceRef.edit();
 
-        TextView prefTextRef=new TextView(this);
-        prefTextRef=(TextView)findViewById(R.id.prefText);
-        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
-
-
+        SeccondAcitivityButton = findViewById(R.id.mainButton);
         SeccondAcitivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
+
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //TextView prefTextRef = new TextView(this);
+        prefTextRef=(TextView)findViewById(R.id.prefText);
+        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
+
     }
 }
