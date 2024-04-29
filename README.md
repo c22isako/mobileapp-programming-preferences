@@ -28,6 +28,9 @@ private SharedPreferences.Editor myPreferenceEditor;
         prefTextRef=(TextView)findViewById(R.id.prefText);
         prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 ```
+Därefter skapade jag en ny empty views activity, SecondActivity, och lägger in widgets i dess xml fil. Jag tog även bort överflödig kod för att passa projektets ändamål. 
+Notera att dessa kodrader kommer från canvas. Eftersom canvas koden även inkluderade ett id som kräver en variabel i string-filen ("save" på button), lades denna till. 
+Denna kommer användas senare i projektet.
 
 Bilder läggs i samma mapp som markdown-filen.
 
