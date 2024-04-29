@@ -44,6 +44,11 @@ public void onClick(View view) {
             }
         });
 ```
+Fixade gradle via build.gradle, där vi ändrade från '1.8.0' till 1.1.0.
+```
+implementation 'androidx.activity:activity:1.1.0'
+```
+
 Bilder läggs i samma mapp som markdown-filen.
 
 ![](android.png)
