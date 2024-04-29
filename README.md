@@ -32,6 +32,18 @@ Därefter skapade jag en ny empty views activity, SecondActivity, och lägger in
 Notera att dessa kodrader kommer från canvas. Eftersom canvas koden även inkluderade ett id som kräver en variabel i string-filen ("save" på button), lades denna till. 
 Denna kommer användas senare i projektet.
 
+Vi skapade en button i MainActivity, och dess xml fil, och lade sedan till en buttonListener till denna i main. Denna ska 
+leda oss till den andra acitvityn i ett senare skede.
+```
+SeccondAcitivityButton.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
+```
 Bilder läggs i samma mapp som markdown-filen.
 
 ![](android.png)
