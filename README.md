@@ -64,5 +64,9 @@ newPrefText = (EditText)findViewById(R.id.settingseditview);
         // Clear the EditText
         newPrefText.setText("");
 ```
-
-![](android.png)
+This is the start screen, showing the initial text
+![](Start.png)
+Middle screen, showcasing the editText
+![](Middle.png)
+End screen, presenting the editText data
+![](End.png)
