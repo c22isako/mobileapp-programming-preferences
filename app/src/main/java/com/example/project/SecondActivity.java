@@ -16,6 +16,7 @@ public class SecondActivity extends AppCompatActivity {
     private Button savetextButton;
     private SharedPreferences.Editor myPreferenceEditor;
     private SharedPreferences myPreferenceRef;
+    //private TextView prefTextRef;
 
     EditText newPrefText;
 
@@ -24,11 +25,15 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        myPreferenceRef = getSharedPreferences("MyAppPreferenceString",MODE_PRIVATE);
+        myPreferenceEditor = myPreferenceRef.edit();
+
         savetextButton = findViewById(R.id.prefButton);
         savetextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                savePref(view);
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
                 startActivity(intent);
 
@@ -39,23 +44,12 @@ public class SecondActivity extends AppCompatActivity {
 
     public void savePref(View v){
 
-        Log.d("Potatis","Kommer till savePref");
         // Get the text
-        //EditText newPrefText = new EditText(this);
         newPrefText = (EditText)findViewById(R.id.settingseditview);
-        Log.d("Potatis","Kommer till edit text set thing ");
 
         // Store the new preference
         myPreferenceEditor.putString("MyAppPreferenceString", newPrefText.getText().toString());
-        Log.d("Potatis","Sparat till string");
-
         myPreferenceEditor.apply();
-        //myPreferenceEditor.commit();
-
-        // Display the new preference
-        TextView prefTextRef = new TextView(this);
-        prefTextRef = (TextView)findViewById(R.id.prefText);
-        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 
         // Clear the EditText
         newPrefText.setText("");

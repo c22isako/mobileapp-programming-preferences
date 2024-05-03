@@ -14,7 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences myPreferenceRef;
-    private SharedPreferences.Editor myPreferenceEditor;
     private Button SeccondAcitivityButton;
     TextView prefTextRef;
 
@@ -26,13 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         myPreferenceRef = getSharedPreferences("MyAppPreferenceString",MODE_PRIVATE);
-        myPreferenceEditor = myPreferenceRef.edit();
 
         SeccondAcitivityButton = findViewById(R.id.mainButton);
         SeccondAcitivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
 
@@ -44,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //TextView prefTextRef = new TextView(this);
         prefTextRef=(TextView)findViewById(R.id.prefText);
         prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 
